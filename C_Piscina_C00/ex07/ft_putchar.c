@@ -1,50 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:40:03 by almanuel          #+#    #+#             */
-/*   Updated: 2023/12/21 19:11:06 by almanuel         ###   ########.fr       */
+/*   Created: 2023/12/20 22:44:31 by almanuel          #+#    #+#             */
+/*   Updated: 2023/12/21 19:03:12 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb2(void);
+void	ft_putnbr(int nb);
 
-void	ft_print_comb2(void)
+void	ft_putchar(char str)
 {
-	char	v1[2];
-	char	v2[2];
-	int		a;
-	int		b;
-
-	a = 0;
-	while (a <= 99)
-	{
-		b = a + 1;
-		while (b <= 99)
-		{
-			v1[0] = '0' + (a / 10);
-			v1[1] = '0' + (a % 10);
-			v2[0] = '0' + (b / 10);
-			v2[1] = '0' + (b % 10);
-			write(1, v1, 2);
-			write(1, " ", 1);
-			write(1, v2, 2);
-			if (a != 98)
-				write(1, ", ", 2);
-			b++;
-		}
-		a++;
-	}
-	write(1, "\n", 1);
+	write(1, &str, 1);
 }
 
-int	main(void)
+void	ft_putnbr(int nb)
 {
-	ft_print_comb2();
-	return (0);
+	if (nb > -2147483648 && nb < 2147483648)
+	{
+		if (nb < 0)
+		{
+			ft_putchar('-');
+			nb = -nb;
+		}
+		if (nb > 9)
+		{
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
+		}
+		else
+			ft_putchar(nb + '0');
+	}
+}
+
+void	main(void)
+{
+	ft_putnbr(-2147483647);
+	write(1, "\n", 1);
 }
