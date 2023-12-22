@@ -6,7 +6,7 @@
 /*   By: analdo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:14:05 by analdo            #+#    #+#             */
-/*   Updated: 2023/12/19 19:43:59 by analdo           ###   ########.fr       */
+/*   Updated: 2023/12/22 20:00:24 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ void	ft_print_comb(void)
 int	main(void)
 {
 	ft_print_comb();
-	write(1, "\n", 1);
 	return (0);
 }

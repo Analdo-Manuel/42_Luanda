@@ -1,49 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:40:03 by almanuel          #+#    #+#             */
-/*   Updated: 2023/12/22 20:02:31 by almanuel         ###   ########.fr       */
+/*   Created: 2023/12/22 20:07:30 by almanuel          #+#    #+#             */
+/*   Updated: 2023/12/22 20:49:50 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb2(void);
+void	ft_print_combn(int n);
 
-void	ft_print_comb2(void)
+void	ft_putchar(char c)
 {
-	char	v1[2];
-	char	v2[2];
-	int		a;
-	int		b;
+	write(1, &c, 1);
+} 
 
-	a = 0;
-	while (a <= 99)
+void	ft_loop(int n, int cont, int atual, int *v)
+{
+	int	i;
+
+	i = 0;
+	if (atual == n)
 	{
-		b = a + 1;
-		while (b <= 99)
+		while (i < n)
 		{
-			v1[0] = '0' + (a / 10);
-			v1[1] = '0' + (a % 10);
-			v2[0] = '0' + (b / 10);
-			v2[1] = '0' + (b % 10);
-			write(1, v1, 2);
-			write(1, " ", 1);
-			write(1, v2, 2);
-			if (a != 98)
-				write(1, ", ", 2);
-			b++;
+			ft_putchar(v[i] + '0');
+			i++;
 		}
-		a++;
+		if (v[0] < (10 - n))
+		{
+			write(1, ", ", 2);
+		}
+	}
+	while (cont < 10)
+	{
+		v[atual] = cont;
+		ft_loop(n, cont + 1, atual + 1, v);
+		cont++;
+	}	
+}
+
+void	ft_print_combn(int n)
+{
+	int	v[n];
+
+	if(n > 0 && n < 10)
+	{
+		ft_loop(n, 0, 0, v);
 	}
 }
 
 int	main(void)
 {
-	ft_print_comb2();
+	ft_print_combn(1);
 	return (0);
 }
