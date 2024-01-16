@@ -1,62 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_combn.c                                   :+:      :+:    :+:   */
+/*   ft_print_combn1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 20:07:30 by almanuel          #+#    #+#             */
-/*   Updated: 2024/01/13 18:56:58 by almanuel         ###   ########.fr       */
+/*   Created: 2024/01/10 21:13:13 by almanuel          #+#    #+#             */
+/*   Updated: 2024/01/13 19:43:11 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_combn(int n);
-
-void	ft_putchar(char c)
+void	ft_putchar(char *c, int n)
 {
-	write(1, &c, 1);
+	write(1, c, n);
+	if (!(c[0] == '9' - n + 1))
+		write(1, ", ", 2);
 }
 
-void	ft_loop(int n, int cont, int atual, int *v)
+void	actualizar(int i, int n, char *v)
 {
-	int	i;
+	int	c;
 
-	i = 0;
-	if (atual == n)
-	{
-		while (i < n)
-		{
-			ft_putchar(v[i] + '0');
-			i++;
-		}
-		if (v[0] < (10 - n))
-		{
-			write(1, ", ", 2);
-		}
-	}
-	while (cont < 10)
-	{
-		v[atual] = cont;
-		ft_loop(n, cont + 1, atual + 1, v);
-		cont++;
-	}
+	c = i;
+	while (c++ < n)
+		v[c] = v[c - 1] + 1;
 }
 
 void	ft_print_combn(int n)
 {
-	int	v[10];
+	char	v[10];
+	int		i;
 
+	i = 0;
 	if (n > 0 && n < 10)
 	{
-		v[n];
-		ft_loop(n, 0, 0, v);
+		while (i < n)
+		{
+			v[i] = '0' + i;
+			i++;
+		}
+		while (i >= 0)
+		{
+			ft_putchar(v, n);
+			i = n - 1;
+			while (i >= 0 && v[i] == '9' - n + i + 1)
+				i--;
+			if (i >= 0)
+			{
+				v[i]++;
+				actualizar(i, n, v);
+			}
+		}
 	}
 }
 
+/*
 int	main(void)
 {
-	ft_print_combn(3);
+	ft_print_combn(1);
 	return (0);
-}
+}*/

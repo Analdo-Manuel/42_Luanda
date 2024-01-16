@@ -6,7 +6,7 @@
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 00:12:18 by almanuel          #+#    #+#             */
-/*   Updated: 2023/12/31 00:22:30 by almanuel         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:53:27 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
+/*
 int	main(void)
 {
 	char	str0[] = "42 Luanda";
@@ -36,3 +37,4 @@ int	main(void)
 	printf("%s\n", str0);	
 	return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 01:01:49 by almanuel          #+#    #+#             */
-/*   Updated: 2023/12/31 01:22:03 by almanuel         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:54:12 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_str_is_numeric(char *str)
 	return (1);
 }
 
+/*
 int	main(void)
 {
 	char	str[] = "analdo";
@@ -33,3 +34,4 @@ int	main(void)
 	printf("%d\n", ft_str_is_numeric(str));
 	return (0);
 }
+*/
