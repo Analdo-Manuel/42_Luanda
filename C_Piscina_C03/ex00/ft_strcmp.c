@@ -6,7 +6,7 @@
 /*   By: almanuel <analdomanuel18@cadent.42.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:34:18 by almanuel          #+#    #+#             */
-/*   Updated: 2024/01/23 10:09:14 by almanuel         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:14:52 by almanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	main(void)
 	char	str2[50] = "6484";
 
 	printf("Resultado: %d\n", ft_strcmp(str1, str2))
-	printf("Original: %d\n, strcmp(str1, str2));
+	printf("Original: %d\n", strcmp(str1, str2));
 	return (0);
 }*/
